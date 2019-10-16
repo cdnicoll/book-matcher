@@ -14,8 +14,5 @@
     "install": "(cd client && yarn) && (cd server && yarn)",
     "start": "concurrently \"cd client && PORT=3000 yarn start\" \"cd server && PORT=3001 yarn start\"",
     "start:prod": "cd server && yarn start:prod"
-  },
-  "engines": {
-    "node": "8.11.3"
- }
+  }
 }
