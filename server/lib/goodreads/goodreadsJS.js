@@ -1,5 +1,5 @@
 const axios = require('axios');
-import xml2js from 'xml2js';
+const xml2js = require('xml2js');
 const Config = require('./config.js');
 
 class GoodReadsJS {
@@ -27,23 +27,9 @@ class GoodReadsJS {
     }
   }
 
-  getResult(path) {
-    axios
-      .get(path)
-      .then(function(response) {
-        let parser = new xml2js.Parser();
-        parser.parseString(response.data, function(err, result) {
-          return result;
-        });
-      })
-      .catch(function(error) {
-        throw error;
-      });
-  }
-
   showUser(username) {
     let path = `${this.config.endpoint}/user/show.xml?key=${this.config.API_KEY}&username=${username}`;
-    console.log(this.getResult());
+
     return new Promise((resolve, reject) => {
       this.getResult(path)
         .then(res => {
@@ -71,6 +57,26 @@ class GoodReadsJS {
   }
 
 
+  getResult(path) {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(path)
+        .then(function(response) {
+          let parser = new xml2js.Parser();
+          parser
+            .parseStringPromise(response.data)
+            .then(function(result) {
+              resolve(result);
+            })
+            .catch(function(err) {
+              reject(err);
+            });
+        })
+        .catch(function(err) {
+          reject(err);
+        });
+    });
+  }
 }
 
 module.exports = GoodReadsJS;
