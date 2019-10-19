@@ -1,6 +1,7 @@
 const Config = require('./config.js');
 // endoints
 const User = require('./endpoints/User');
+const Reviews = require('./endpoints/Reviews');
 
 class GoodReadsJS {
   constructor(apiKey, apiSecret, options = {}) {
@@ -27,6 +28,7 @@ class GoodReadsJS {
     }
 
     this.User = new User(this.config);
+    this.Reviews = new Reviews(this.config);
   }
 }
 

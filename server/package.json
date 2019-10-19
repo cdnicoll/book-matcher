@@ -23,11 +23,12 @@
     "http": "^0.0.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.4",
+    "oauth": "^0.9.15",
     "xml2js": "^0.4.22"
   },
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-config-airbnb": "^18.0.1"
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3"
   }
 }

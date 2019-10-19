@@ -2,11 +2,11 @@ const axios = require('axios');
 const xml2js = require('xml2js');
 
 class Endpoint {
-    constructor(config) {
-        this.config = config
-    }
-    
-    getResult(path) {
+  constructor(config) {
+    this.config = config;
+  }
+
+  getResult(path) {
     return new Promise((resolve, reject) => {
       axios
         .get(path)
