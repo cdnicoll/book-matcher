@@ -37,25 +37,7 @@ class GoodReadsJS {
         })
         .catch(err => reject(err));
     });
-
-    /*
-    // This is working ... Need to figure out how to break this into a function and just call 'getResult(path)
-    return new Promise((resolve, reject) => {
-      axios
-        .get(path)
-        .then(function(response) {
-          let parser = new xml2js.Parser();
-          let data = parser.parseString(response.data, function (err, result) {
-            resolve(result.GoodreadsResponse)
-          });
-        })
-        .catch(function(error) {
-          reject(error);
-        });
-    });
-    */
   }
-
 
   getResult(path) {
     return new Promise((resolve, reject) => {

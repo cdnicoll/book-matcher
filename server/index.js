@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
   try {
     let grRes = await grApi.showUser('cdnicoll');
     //console.log(grRes);
-res.send(grRes);
+    res.send(grRes);
   } catch (err) {
     console.log(err);
   }
