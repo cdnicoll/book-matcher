@@ -15,7 +15,7 @@ const grApi = new GoodReadsJS(API_KEY, API_SECRET);
 app.use(cors()).use(morgan('combined'));
 app.get('/', async (req, res) => {
   try {
-    let grRes = await grApi.showUser('cdnicoll');
+    let grRes = await grApi.User.showUser('cdnicoll');
     //console.log(grRes);
     res.send(grRes);
   } catch (err) {
