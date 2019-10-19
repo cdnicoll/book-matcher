@@ -1,4 +1,5 @@
 const axios = require('axios');
+import xml2js from 'xml2js';
 const Config = require('./config.js');
 
 class GoodReadsJS {
@@ -24,20 +25,52 @@ class GoodReadsJS {
         'The apiSecret is needed. Please pass it as parameter to the GoodReadsJS constructor.',
       );
     }
-
-    axios.create({
-      baseURL: this.config.endpoint,
-    });
   }
 
-    showUser(username) {
-    //this.options.path = `${this.options.endpoint}/user/show.xml?key=${this.options.key}&username=${username}`;
-    let path = `/user/show.xml?key=${this.config.API_KEY}&username=${username}`;
-    const res = axios.get(path).then(res => {
-        console.log(res);
-    });
-    
+  getResult(path) {
+    axios
+      .get(path)
+      .then(function(response) {
+        let parser = new xml2js.Parser();
+        parser.parseString(response.data, function(err, result) {
+          return result;
+        });
+      })
+      .catch(function(error) {
+        throw error;
+      });
   }
+
+  showUser(username) {
+    let path = `${this.config.endpoint}/user/show.xml?key=${this.config.API_KEY}&username=${username}`;
+    console.log(this.getResult());
+    return new Promise((resolve, reject) => {
+      this.getResult(path)
+        .then(res => {
+          resolve(res.GoodreadsResponse);
+        })
+        .catch(err => reject(err));
+    });
+
+    /*
+    // This is working ... Need to figure out how to break this into a function and just call 'getResult(path)
+    return new Promise((resolve, reject) => {
+      axios
+        .get(path)
+        .then(function(response) {
+          let parser = new xml2js.Parser();
+          let data = parser.parseString(response.data, function (err, result) {
+            resolve(result.GoodreadsResponse)
+          });
+        })
+        .catch(function(error) {
+          reject(error);
+        });
+    });
+    */
+  }
+
+
 }
 
 module.exports = GoodReadsJS;

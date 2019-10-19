@@ -1,0 +1,8 @@
+Project:
+  Client:
+  Server:
+    ☐ Setup ESLint @created(10-19-19 09:25)
+    GoodreadsJS:
+      ☐ Handle errors @created(10-17-19 21:31)
+      ☐ Figure out how to set global axios url @created(10-17-19 21:31)
+      ☐ Build out getResult method to handle ajax requests @created(10-17-19 22:34)
