@@ -27,7 +27,7 @@ class Shelves extends Endpoint {
     }
 
     return new Promise((resolve, reject) => {
-      this.getResult(path)
+      this.getoAuthResult(path)
         .then(res => {
           resolve(res.GoodreadsResponse);
         })

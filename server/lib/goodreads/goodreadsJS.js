@@ -1,5 +1,6 @@
 const Config = require('./config.js');
 // endoints
+const Auth = require('./endpoints/Auth');
 const User = require('./endpoints/User');
 const Reviews = require('./endpoints/Reviews');
 
@@ -27,6 +28,7 @@ class GoodReadsJS {
       );
     }
 
+    this.Auth = new Auth(this.config);
     this.User = new User(this.config);
     this.Reviews = new Reviews(this.config);
   }
