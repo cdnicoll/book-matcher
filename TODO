@@ -2,7 +2,13 @@ Project:
   Client:
   Server:
     ☐ Setup ESLint @created(10-19-19 09:25)
+    ☐ create API endpoints @created(10-19-19 12:42)
+    ☐ Setup oAuth @created(10-19-19 15:59)
     GoodreadsJS:
-      ☐ Handle errors @created(10-17-19 21:31)
+      ✔ Handle errors @created(10-17-19 21:31) @done(10-19-19 15:58)
       ☐ Figure out how to set global axios url @created(10-17-19 21:31)
-      ☐ Build out getResult method to handle ajax requests @created(10-17-19 22:34)
+      ☐ Create index file for endpoints so I can deconstruct them @created(10-19-19 11:39)
+      ✘ Create index file for helpers so I can deconstruct them @created(10-19-19 11:46) @cancelled(10-19-19 12:41)
+      ✔ Build out getResult method to handle ajax requests @created(10-17-19 22:34) @done(10-19-19 11:40)
+      ☐ Add rate-limiting and caching @created(10-19-19 12:41)
+      ☐ Add comment blocks @created(10-19-19 12:42)
