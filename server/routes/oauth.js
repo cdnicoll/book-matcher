@@ -9,9 +9,10 @@ routes.get('/', async (req, res) => {
     let grRes = await grApi.Auth.getAuthToken();
     console.log(grRes);
 
-    res.writeHead(302, { Location: grRes.url });
+    //res.writeHead(302, { Location: grRes.url });
     return res.end();
   } catch (err) {
+    console.log(err);
     res.status(400).send(err);
   }
 });

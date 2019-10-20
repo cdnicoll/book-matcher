@@ -1,4 +1,4 @@
-const OAuth = require('oauth');
+const OAuth = require('oauth').OAuth;
 const Endpoint = require('../Endpoint');
 
 class Auth extends Endpoint {
@@ -6,9 +6,13 @@ class Auth extends Endpoint {
     super(config);
   }
 
+
+  // OLD CODE
+  /*
   getAuthToken() {
     return new Promise((resolve, reject) => {
-      let oauth = new OAuth.OAuth(
+      console.log('getting auth token...');
+      let oa = new oauth(
         this.config.oauth_request_url,
         this.config.oauth_access_url,
         this.config.key,
@@ -17,19 +21,17 @@ class Auth extends Endpoint {
         this.config.callback,
         this.config.oauth_encryption,
       );
-      console.log(oauth)
-      oauth.getOAuthRequestToken((error, token, secret, result) => {
+      oa.getOAuthRequestToken((error, token, secret, result) => {
         if (error) {
           console.log(error);
           reject(
             `Error getting OAuth request token : ${JSON.stringify(error)}`,
             500,
           );
-        } else {
-          let url = `https://goodreads.com/oauth/authorize?oauth_token=${token}&oauth_callback=${oauth._authorize_callback}`;
-          console.log(url);
-          return resolve({ token, secret, url });
         }
+        let url = `https://goodreads.com/oauth/authorize?oauth_token=${token}&oauth_callback=${oa._authorize_callback}`;
+        console.log(url);
+        resolve({ token, secret, url });
       });
     });
   }
@@ -72,6 +74,7 @@ class Auth extends Endpoint {
       );
     });
   }
+  */
 
   /**
    * https://www.goodreads.com/api/index#auth.user

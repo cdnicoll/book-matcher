@@ -3,10 +3,6 @@ const deepmerge = require('deepmerge');
 let goodreadsDefaultConfig = {
   host: 'www.goodreads.com',
   port: 80,
-  //   key: config.key,
-  //   secret: config.secret,
-//   key: 'y61GHcjZi7lk4yYT0lOw',
-//   secret: 'F9LpAqZVUWQjE0NYacA57HLzXfMLUAExJV2v7do',
   // callback: config.callback || 'http://localhost:3001/callback',
   callback: 'http://localhost:3001/callback',
   method: 'GET',
